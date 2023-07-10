@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import cart from '../store/cart'
-import alert from '../store/alert'
-import dialog from '../store/dialog'
-import auth from '../store/auth'
+import cart from './store/cart'
+import alert from './store/alert'
+import dialog from './store/dialog'
+import auth from './store/auth'
 import login from './views/LoginPage'
 
 Vue.use(Vuex)
@@ -22,7 +22,7 @@ export default new Vuex.Store({
   },
   actions: {
     setSideBar: ({commit}, value) => {
-      commit('sideBar', value)
+      commit('setsideBar', value)
     },
   },
   modules: {
@@ -30,6 +30,6 @@ export default new Vuex.Store({
     alert,
     dialog,
     auth,
-    login
+    login,
   }
 })
