@@ -5,6 +5,8 @@ import alert from './store/alert'
 import dialog from './store/dialog'
 import auth from './store/auth'
 import login from './views/LoginPage'
+import region from './store/region'
+
 
 Vue.use(Vuex)
 
@@ -14,16 +16,24 @@ export default new Vuex.Store({
   },
   getters: {
     sideBar: state => state.sideBar,
+    prevUrl: state => state.prevUrl,
+
   },
   mutations: {
     setsideBar: (state, value)=>{
       state.sideBar=value
+    },
+    setPrevUrl: (state, value) => {
+      state.prevUrl = value;
     },
   },
   actions: {
     setSideBar: ({commit}, value) => {
       commit('setsideBar', value)
     },
+    setPrevUrl: ({ commit }, value) => {
+      commit('setPrevUrl', value)
+      },
   },
   modules: {
     cart,
@@ -31,5 +41,6 @@ export default new Vuex.Store({
     dialog,
     auth,
     login,
+    region,
   }
 })

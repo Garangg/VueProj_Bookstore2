@@ -1,58 +1,41 @@
-<style type="text/css">
-  .v-toolbar{
-    flex: 0 !important;
-  }
-  .v-application .p-3{
-    text-align: center !important;
-  }
-  .v-card__text{
-    text-align: center !important;
-  }
-</style>
-
 <template>
   <v-app>
-    <!-- component header -->
+    <!-- header -->
     <c-header />
-    
-    <!-- component sidebar -->
+    <!-- sidebar -->
     <c-side-bar />
-    
-    <!-- konten utama -->
-    <v-content>
-      <v-slide-y-transition mode="out-in">
-        <router-view></router-view>
-      </v-slide-y-transition>
-    </v-content>
-    
-    <!-- component footer -->
-    <c-footer />
-    
     <c-alert />
 
-    <!-- <v-dialog v-model="dialog" fullscreen hidoverlay transition="dialogbottom-transition">
-      <search />
-    </v-dialog> -->
-
     <keep-alive>
-      <v-dialog v-model="statusDialog" fullscreen hide-overlay transition="dialogbottom-transition">
-      <component :is="currentComponent"></component>
-    </v-dialog> 
+      <v-dialog
+        v-model="dialog"
+        fullscreen hide-overlay
+        transition="dialogbottom-transition"
+      >
+        <component :is="currentComponent"></component>
+      </v-dialog>
     </keep-alive>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+
+    <!-- footer -->
+    <c-footer />
   </v-app>
 </template>
 
 <script>
 import CHeader from '@/components/CHeader.vue'
-import CFooter from '@/components/CFooter.vue'
 import CSideBar from '@/components/CSideBar.vue'
+import CFooter from '@/components/CFooter.vue'
 import CAlert from '@/components/CAlert.vue'
-import Search from '@/views/SearchPage.vue'
+import SearchPage from '@/views/SearchPage.vue'
+import Checkout from '@/views/CheckoutPage.vue'
+import Cart from '@/views/CartPage.vue'
+import login from '@/views/LoginPage.vue'
+import register from '@/views/RegisterPage.vue'
 import { mapActions, mapGetters } from 'vuex'
-import Login from '@/views/LoginPage.vue'
-import Register from '@/views/RegisterPage.vue'
-import Logout from '@/components/CSideBar.vue'
-
 
 export default {
   name: 'App',
@@ -61,10 +44,11 @@ export default {
     CFooter,
     CSideBar,
     CAlert,
-    Search,
-    Login,
-    Register,
-    Logout
+    SearchPage,
+    Cart,
+    Checkout,
+    login,
+    register,
   },
   methods:{
     ...mapActions({
@@ -87,3 +71,17 @@ export default {
   },
 }
 </script>
+
+<style type="text/css">
+  .v-toolbar {
+    flex: 0 !important;
+  }
+
+  .v-application .py-3 {
+    text-align: center !important;
+  }
+  .v-card__text {
+    text-align: center !important;
+  }
+
+</style>
