@@ -30,12 +30,16 @@ import CHeader from '@/components/CHeader.vue'
 import CSideBar from '@/components/CSideBar.vue'
 import CFooter from '@/components/CFooter.vue'
 import CAlert from '@/components/CAlert.vue'
+import MyOrder from '@/components/MyOrder.vue'
 import SearchPage from '@/views/SearchPage.vue'
 import Checkout from '@/views/CheckoutPage.vue'
 import Cart from '@/views/CartPage.vue'
 import login from '@/views/LoginPage.vue'
 import register from '@/views/RegisterPage.vue'
+import PaymentPage from '@/views/PaymentPage.vue'
+import Profile from '@/views/ProfilePage.vue'
 import { mapActions, mapGetters } from 'vuex'
+
 
 export default {
   name: 'App',
@@ -49,6 +53,9 @@ export default {
     Checkout,
     login,
     register,
+    MyOrder,
+    PaymentPage,
+    Profile,
   },
   methods:{
     ...mapActions({

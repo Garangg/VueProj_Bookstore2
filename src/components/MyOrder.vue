@@ -23,6 +23,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import axios from 'axios';
 export default{
     data(){
         return{
@@ -30,7 +31,7 @@ export default{
         }
     },
     computed:{
-        ...mapActions({
+        ...mapGetters({
             user:'auth/user',
         })
     },
@@ -42,7 +43,7 @@ export default{
     mounted(){
         let config ={
             headers:{
-                'Authorization':'Bearer'+this.user.api_token,
+                'Authorization':'Bearer '+this.user.api_token,
             },
         }
         axios

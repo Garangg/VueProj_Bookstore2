@@ -69,7 +69,7 @@ export default {
     items: [
       { title: 'Home', icon: 'mdi-view-dashboard', route: 'home' },
       { title: 'Profile', icon: 'person', route: 'profile', auth:true },
-      { title: 'My Order', icon: 'shop_two', route: 'my-orde', auth:true },
+      { title: 'My Order', icon: 'shop_two', route: 'my-order', auth:true },
       { title: 'About', icon: 'mdi-alert-circle', route: 'about' },
     ]
   }),
@@ -97,6 +97,13 @@ export default {
       setAuth: 'auth/set',
       setAlert: 'alert/set',
     }),
+    getImage (image) {
+        if (image != null && image.length>0) {
+          const prefix = process.env.VUE_APP_BACKEND_URL.replace('/api/v1', '')
+          return `${prefix}/storage/images/${image}`
+        }
+        return "/img/unvaliable.jpg"
+      },
     login() {
       this.setStatusDialog(true)
       this.setComponent('login')

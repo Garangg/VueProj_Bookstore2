@@ -40,7 +40,7 @@ export default new Vuex.Store({
     setPrevUrl: ({ commit }, value) => {
       commit('setPrevUrl', value)
       },
-    setPayment: (state, value) => {
+    setPayment: ({commit}, value) => {
       commit('setPayment', value)
       }
   },

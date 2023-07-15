@@ -16,11 +16,11 @@
              <v-container>
                 <v-simple-table>
                     <tr>
-                        <td><img src="img/bca.png"></td>
+                        <td><img src="img/bca.png" style="max-height: 100px;"></td>
                         <td>BCA KCP abc No Rek 123</td>
                     </tr>
                     <tr>
-                        <td><img src="img/mandiri.png"></td>
+                        <td><img src="img/mandiri.png" style="max-height: 100px;"></td>
                         <td>BANK MANDIRI KCP xyz No Rek 456</td>
                     </tr>
                 </v-simple-table>
@@ -50,7 +50,7 @@
         },
         methods:{
             finish(){
-                this.router.push('/')
+                this.$router.push('/')
             }
         }
     }

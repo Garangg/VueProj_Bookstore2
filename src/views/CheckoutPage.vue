@@ -79,7 +79,7 @@
             <div class="title">{{ totalBill.toLocaleString('id-ID') }}</div>
           </v-flex>
           <v-flex xs6 text-center>
-            <v-btn color="orange">
+            <v-btn color="orange" @click="dialogConfirm=true">
               <v-icon light>attach_money</v-icon> &nbsp;
               Pay
             </v-btn>
@@ -137,7 +137,6 @@ export default {
       totalPrice: 'cart/totalPrice',
       totalQuantity: 'cart/totalQuantity',
       totalWeight: 'cart/totalWeight',
-      setPayment : 'setPayment'
     }),
     citiesByProvince() {
       let province_id = this.province_id
@@ -153,6 +152,7 @@ export default {
       updateProvinces: 'region/setProvinces',
       updateCities: 'region/setCities',
       setCart: 'cart/set',
+      setPayment: 'setPayment'
     }),
     saveShipping() {
       if (!this.user.api_token) {
@@ -260,7 +260,7 @@ export default {
         .post(`${process.env.VUE_APP_BACKEND_URL}/api/v1/payment`, formData, config)
         .then((response) => {
           let { data } = response
-          if (data && data.status == 'succes') {
+          if (data && data.status == 'success') {
             this.setPayment(data.data)
             this.$router.push({ path: "/payment" })
             this.setCart([])

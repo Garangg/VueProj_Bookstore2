@@ -15,7 +15,7 @@ const router = new VueRouter({
   routes: [
     {
           path: '/',
-          name: 'HomePage',
+          name: 'home',
           component: HomeView
         },
         {
@@ -57,8 +57,14 @@ const router = new VueRouter({
         },
         {
           path: '/profile',
-          name: 'ProfilePage',
+          name: 'profile',
           component: () => import('../views/ProfilePage.vue'),
+          meta: { auth: true }
+        },
+        {
+          path: '/my-order',
+          name: 'my-order',
+          component: () => import('../components/MyOrder.vue'),
           meta: { auth: true }
         },
       ],
