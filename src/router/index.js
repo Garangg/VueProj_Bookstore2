@@ -49,7 +49,19 @@ const router = new VueRouter({
           component: () => import('../views/CheckoutPage.vue'),
           meta: { auth: true }
         },
-  ],
+        {
+          path: '/payment',
+          name: 'PaymentPage',
+          component: () => import('../views/PaymentPage.vue'),
+          meta: { auth: true }
+        },
+        {
+          path: '/profile',
+          name: 'ProfilePage',
+          component: () => import('../views/ProfilePage.vue'),
+          meta: { auth: true }
+        },
+      ],
 
 })
 

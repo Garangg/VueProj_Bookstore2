@@ -45,14 +45,16 @@
     <v-list class="pt-0" dense>
       <v-divider></v-divider>
 
-      <v-list-item v-for="(item, index) in items" :key="index" :href="item.route" :to="{ name: item.route }">
-        <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <template v-for="(item, index) in items" >
+        <v-list-item :key="index" :href="item.route" :to="{ name: item.route }" v-if="!item.auth || (item.auth && !guest)">
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -66,6 +68,8 @@ export default {
   data: () => ({
     items: [
       { title: 'Home', icon: 'mdi-view-dashboard', route: 'home' },
+      { title: 'Profile', icon: 'person', route: 'profile', auth:true },
+      { title: 'My Order', icon: 'shop_two', route: 'my-orde', auth:true },
       { title: 'About', icon: 'mdi-alert-circle', route: 'about' },
     ]
   }),
